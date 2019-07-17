@@ -19,27 +19,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Use CORS and File Upload modules here
-app.use(cors());
-app.use(fileUpload());
+
+
 
 app.use('/public', express.static(__dirname + '/public'));
 
 app.use('/', index);
 
-app.post('/upload', (req, res, next) => {
-  // console.log(req);
-  let imageFile = req.files.file;
-
-  imageFile.mv(`${__dirname}/public/${req.body.filename}.jpg`, err => {
-    if (err) {
-      return res.status(500).send(err);
-    }
-
-    res.json({ file: `public/${req.body.filename}.jpg` });
-    console.log(res.json);
-  }); 
-});
 
 app.get('/test', (req, res) => {
   res.send("API found!");
