@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import './PhotoHistory.css';
+import './LoginPage.css';
 
-class PhotoHistory extends Component {
-
-
+class LoginPage extends Component {
     render() {
         return (
             <div>
@@ -21,7 +19,7 @@ class PhotoHistory extends Component {
                             <li><a href="#"><span class="glyphicon glyphicon-cloud-upload"></span> Upload</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>Username
-                                <span class="caret"></span></a>
+                        <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
                                     <li><a href="#"><span class="glyphicon glyphicon-lock"></span>Account Details</a></li>
@@ -36,20 +34,35 @@ class PhotoHistory extends Component {
                         </form>
                     </div>
                 </nav>
-                <div className="photolog-container" >
-                    <div class="row">
-                        <div class="col-sm-12"></div>
+
+                <form>
+                    <div class="form-group col-md-4 col-md-offset-4">
+                        <label for="inputEmail" class="col-md-4 col-md-offset-4 col-form-label">Email</label>
+                        <div class="col-md-4 col-md-offset-4">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Email" />
+                        </div>
                     </div>
-
-
-                </div>
+                    <div class="form-group col-md-4 col-md-offset-4">
+                        <label for="inputPassword" class="col-md-4 col-md-offset-4 col-form-label">Password</label>
+                        <div class="col-md-4 col-md-offset-4">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 col-md-offset-4">
+                        <div class="col-md-4 col-md-offset-4">
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 col-md-offset-4 ">
+                        <div class="col-md-4 col-md-offset-4 ">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-
 
 
         );
     }
 }
-
-
-export default PhotoHistory;
+export default LoginPage;
