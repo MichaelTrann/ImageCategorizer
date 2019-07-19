@@ -17,24 +17,30 @@ class App extends Component {
 */
 
 
-  /* render(){ 
+/*     render(){ 
     return (
         <PhotoHistory/>
     );
-  } */
+  }   */
   
 
-/*   render(){
+     render(){
     return (
       <PhotoLog/>
     );
-  } */
+  }   
 
-  render(){
+/*    render(){
     return (
       <RegisterPage/>
     )
-  }
+  }  */
+/*  
+     render(){
+    return (
+      <LoginPage/>
+    )
+  }  */ 
 } 
 
   
