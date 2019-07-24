@@ -6,8 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors'); // addition we make
 const fileUpload = require('express-fileupload'); //addition we make
-
-const index = require('./routes/index');
+const routes = require('./routes/routes');
 const users = require('./routes/users');
 
 const app = express();
@@ -24,7 +23,7 @@ app.use(cookieParser());
 
 app.use('/public', express.static(__dirname + '/public'));
 
-app.use('/', index);
+app.use('/api', routes);
 
 
 app.get('/test', (req, res) => {
@@ -46,7 +45,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send('error');
 });
 
 

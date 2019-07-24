@@ -36,6 +36,7 @@ class PhotoHistory extends Component {
                         </form>
                     </div>
                 </nav>
+                
                 <div className="photolog-container" >
                     <div class="row">
                         <div class="col-sm-12"></div>
