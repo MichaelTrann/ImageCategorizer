@@ -5,8 +5,8 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'imagecategorizer',
-  database: 'simple-react-sql-db'
+  password: 'root',
+  database: 'imagecategorizer'
 });
 
 /* connection.connect(function (err)){
@@ -19,17 +19,15 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/test', function (req, res, next) {
-  res.send("hello from test");
-});
-
-/*    connection.connect();
-  connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+  connection.connect();
+  connection.query('SELECT * FROM users', function (error, results, fields) {
     if (error) throw error;
-    console.log('The solution is: ', results[0].solution);
+    console.log('The solution is: ', results[0].password);
+    res.send(results[0].password);
   });
-  res.render('index', { title: 'Express' });
+
   connection.end(); 
-}); */
+}); 
 
 
 
