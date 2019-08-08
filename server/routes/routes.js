@@ -1,5 +1,4 @@
 var express = require('express');
-var router = express.Router();
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
@@ -9,27 +8,34 @@ const connection = mysql.createConnection({
   database: 'imagecategorizer'
 });
 
-/* connection.connect(function (err)){
-  (err) ? console.log(err) : console.log(connection);
-}); */
+connection.connect(function(err){
+  
+  if(!err) {
+      console.log("Database is connected ... nn");
+      
+  } else {
+      console.log("Error connecting database ... nn");
+  }
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.send({ title: 'Express' });
-});
 
-router.get('/test', function (req, res, next) {
+});  
+
+
+
+
+/* router.get('/test', function (req, res, next) {
   connection.connect();
   connection.query('SELECT * FROM users', function (error, results, fields) {
     if (error) throw error;
-    console.log('The solution is: ', results[0].password);
-    res.send(results[0].password);
-  });
-
-  connection.end(); 
-}); 
-
-
+    console.log('The solution is: ', results);
+    res.send(results);
+    
+  }); 
+  connection.end();
+  */
 
 
-module.exports = router;
+
+
+
+module.exports = connection;
