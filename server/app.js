@@ -36,11 +36,11 @@ app.get('/test', (req, res) => {
   res.send("test");
 });
 // Added
-/* app.post('/api/register', registerController.register);
+app.post('/api/register', registerController.register);
 app.post('/api/authenticate', authenticateController.authenticate);
 console.log(authenticateController);
 app.post('./routes/registerController', registerController.register);
-app.post('./routes/authenticateController', authenticateController.authenticate);  */
+app.post('./routes/authenticateController', authenticateController.authenticate);  
 
 /* app.post('/register', routes.register); */
 app.use('/api', router);
