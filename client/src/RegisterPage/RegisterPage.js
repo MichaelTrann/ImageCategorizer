@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import './RegisterPage.css';
+import axios from 'axios';
 
 class RegisterPage extends Component {
     constructor() {
@@ -10,7 +11,6 @@ class RegisterPage extends Component {
           name: "",
           email: "",
           password: "",
-          password2: "",
           errors: {}
         };
       }
@@ -18,15 +18,23 @@ class RegisterPage extends Component {
       onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
       };
-
+      
       onSubmit = e => {
-        e.preventDefault();const newUser = {
+        e.preventDefault();
+        const newUser = {
           name: this.state.name,
           email: this.state.email,
           password: this.state.password,
-          password2: this.state.password2
         };
-        console.log(newUser);
+        axios.post('http://localhost:4000/api/register', newUser)
+          .then( function (response)  {
+            console.log(response.data.code);
+          })
+          .catch(function (error) {
+            console.log(error);
+
+          });
+          
       };
 
     render() {
@@ -74,16 +82,7 @@ class RegisterPage extends Component {
                 />
                 <label htmlFor="password">Password</label>
               </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password2}
-                  error={errors.password2}
-                  id="password2"
-                  type="password"
-                />
-                <label htmlFor="password2">Confirm Password</label>
-              </div>
+
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{

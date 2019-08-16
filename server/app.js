@@ -13,6 +13,7 @@ var registerController=require('./routes/registerController');
 
 
 var app = express();
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -38,12 +39,9 @@ app.get('/test', (req, res) => {
 // Added
 app.post('/api/register', registerController.register);
 app.post('/api/authenticate', authenticateController.authenticate);
-console.log(authenticateController);
-app.post('./routes/registerController', registerController.register);
-app.post('./routes/authenticateController', authenticateController.authenticate);  
+console.log(authenticateController); 
 
-/* app.post('/register', routes.register); */
-app.use('/api', router);
+/* app.use('/api', router); */
 
 
 // catch 404 and forward to error handler
