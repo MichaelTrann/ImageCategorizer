@@ -15,12 +15,15 @@ exports.authenticate=function(req,res){
             if(password==results[0].password){
                 res.json({
                     status:true,
-                    message:'successfully authenticated'
+                    message:'successfully authenticated',
+                    "code":400
                 })
             }else{
                 res.json({
                   status:false,
-                  message:"Email and password does not match"
+                  message:"Email and password does not match",
+                  "code":200
+
                  });
             }
           
